@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import FastAPI, status
+from fastapi.staticfiles import StaticFiles
 
 from app.internal import versions
 from app.routers import demo
@@ -7,11 +8,11 @@ from app.routers import demo
 # Provide meta data for API.
 # https://fastapi.tiangolo.com/tutorial/metadata/#metadata-for-api
 app = FastAPI(
-    title="FastAPI Bigger Applications Template",
-    description="An example project for bigger applications",
+    title="Google Cloud Platform (GCP) App Engine Python Static Appe",
+    description="This demonstrates how to use FastAPI to serve static files in your application.",
     contact={
-        "name": "Template",
-        "url": "https://github.com/kwame-mintah/python-fastapi-bigger-applications-template",
+        "name": "gcp-app-engine-python-fastapi-static-app",
+        "url": "https://github.com/kwame-mintah/gcp-app-engine-python-fastapi-static-app",
         "email": "email@email.com",
     },
     license_info={
@@ -19,6 +20,7 @@ app = FastAPI(
         "url": "https://choosealicense.com/",
     },
 )
+app.mount(path="/static", app=StaticFiles(directory="static"), name="static")
 app.include_router(demo.router)
 app.include_router(versions.router)
 

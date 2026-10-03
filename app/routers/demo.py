@@ -1,88 +1,34 @@
-from typing import List, Annotated
-
-from fastapi import APIRouter, Depends, status, Form
-
-from app.dependencies import get_demo_service
-from app.models.models import Message, MessageFormData
-from app.services.demo_service import DemoService
+from fastapi import APIRouter, status
+from fastapi.responses import FileResponse
 
 router = APIRouter(prefix="/demo", tags=["demo"])
 
 
 @router.get(
-    path="",
-    operation_id="getDemoRoot",
-    summary="Demonstrating GET Request",
-    response_model=List[Message],
+    path="/",
+    operation_id="htmlIndex",
+    summary="Demonstrating returning the root page",
     status_code=status.HTTP_200_OK,
 )
-async def demo_get(
-    service: DemoService = Depends(get_demo_service),
-) -> List[Message]:
-    """
-    An example `GET` endpoint to return a response
-    :param service:
-    :return: Message
-    """
-    return service.return_stub_data()
+def home() -> FileResponse:
+    return FileResponse("static/html/index.html")
 
 
-@router.post(
-    path="",
-    operation_id="postDemoRootJsonBody",
-    summary="Demonstrating POST Request with JSON body",
-    response_model=List[Message],
+@router.get(
+    path="/about",
+    operation_id="htmlAbout",
+    summary="Demonstrating returning the about page",
     status_code=status.HTTP_200_OK,
 )
-async def demo_post_json_body(
-    message: Message,
-    service: DemoService = Depends(get_demo_service),
-) -> List[Message]:
-    """
-    An example `POST` endpoint to return a response
-    :param message:
-    :param service:
-    :return: List of Messages stored
-    """
-    return service.create_additional_stub_data(message)
+def about():
+    return FileResponse("static/html/about.html")
 
 
-@router.post(
-    path="/formdata",
-    operation_id="postDemoRootFormData",
-    summary="Demonstrating POST Request with FormData",
-    response_model=List[Message],
+@router.get(
+    path="/contact",
+    operation_id="htmlContact",
+    summary="Demonstrating returning the contact page",
     status_code=status.HTTP_200_OK,
 )
-async def demo_post_formdata(
-    message: Annotated[MessageFormData, Form()],
-    service: DemoService = Depends(get_demo_service),
-) -> List[Message]:
-    """
-    An example `POST` endpoint to return a response
-    :param message:
-    :param service:
-    :return: List of Messages stored
-    """
-    return service.create_additional_stub_data(message)
-
-
-@router.delete(
-    path="/{message_id}",
-    operation_id="deleteDemoRoot",
-    summary="Demonstrating DEL Request",
-    response_model=None,
-    status_code=status.HTTP_204_NO_CONTENT,
-)
-async def demo_delete(
-    message_id: int,
-    service: DemoService = Depends(get_demo_service),
-) -> None:
-    """
-    An example `DELETE` endpoint to remove a message from
-    stub data
-    :param message_id: The `messageId` to delete
-    :param service: DemoService
-    :return: successfully processed the request
-    """
-    return service.remove_stub_data(message_id)
+def contact():
+    return FileResponse("static/html/contact.html")

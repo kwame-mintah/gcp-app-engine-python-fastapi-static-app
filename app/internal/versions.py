@@ -13,7 +13,6 @@ router = APIRouter(prefix="/version", tags=["versions"])
     "/python",
     operation_id="pythonVersion",
     summary="Python version installed",
-    response_model=Package,
     status_code=status.HTTP_200_OK,
 )
 async def python_version() -> Package:
@@ -28,7 +27,6 @@ async def python_version() -> Package:
     "/fastapi",
     operation_id="fastapiVersion",
     summary="FastAPI version installed",
-    response_model=Package,
     status_code=status.HTTP_200_OK,
 )
 async def fastapi_version() -> Package:
