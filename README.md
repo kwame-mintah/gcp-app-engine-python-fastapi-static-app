@@ -7,6 +7,10 @@ This is a FastAPI application, that only serves static files for [Google App Eng
 this is a continuation of my other repositories to deploy simple apps to various cloud providers e.g. [digital ocean](https://github.com/kwame-mintah/digitalocean-static-app),
 [azure](https://github.com/kwame-mintah/python-fastapi-azure-k8s-cluster) etc.
 
+[![Open in Cloud Shell][shell_img]][shell_link]
+
+[shell_img]: http://gstatic.com/cloudssh/images/open-btn.png
+[shell_link]: https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/kwame-mintah/gcp-app-engine-python-fastapi-static-app&page=editor&open_in_editor=README.md
 
 This repository is intended as a quick-start for deploying to App Engine:
 
