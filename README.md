@@ -1,23 +1,18 @@
-# Python FastAPI Bigger Applications Template
+# Google Cloud Platform (GCP) App Engine Python Static App
 
 ![python](https://img.shields.io/badge/python-3.11.6-informational)
 ![fastapi-0.116.0-informational](https://img.shields.io/badge/fastapi-0.116.0-informational)
-<a href="https://github.com/new?template_name=python-fastapi-bigger-applications-template&template_owner=kwame-mintah">
-<img src="https://img.shields.io/badge/use%20this-template-blue?logo=github">
-</a>
 
-This a template project, to demonstrate using FastAPI in a bigger application. The same file structure
-has been followed as per FastAPI [docs](https://fastapi.tiangolo.com/tutorial/bigger-applications/).
+This is a FastAPI application, that only serves static files for [Google App Engine Flexible Environment](https://cloud.google.com/appengine),
+this is a continuation of my other repositories to deploy simple apps to various cloud providers e.g. [digital ocean](https://github.com/kwame-mintah/digitalocean-static-app),
+[azure](https://github.com/kwame-mintah/python-fastapi-azure-k8s-cluster) etc.
 
-This repository is intended as a quick-start and includes the following:
 
-- A [`Dockerfile`](/Dockerfile) to build the FastAPI application
-  following [guidelines](https://docs.docker.com/develop/develop-images/guidelines/) and [Distroless variant](/Dockerfile.distroless),
-- A `docker-compose.yml` file to build and start the application,
-- GitHub Action workflow to run linting and unit tests,
-- Pre-commit hooks to run on each commit,
-- Pydantic models as response models for endpoints,
-- Unit and integration feature tests for endpoints.
+This repository is intended as a quick-start for deploying to App Engine:
+
+- A [`app.yaml`](https://docs.cloud.google.com/appengine/docs/standard/reference/app-yaml?tab=python) containing runtime information,
+- GitHub Action workflow to run linting, unit tests and create a zip file,
+- Pre-commit hooks to run on each commit.
 
 ## Usage
 
