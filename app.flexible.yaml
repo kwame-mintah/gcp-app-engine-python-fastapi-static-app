@@ -1,0 +1,34 @@
+# App Engine Flexible reference
+# Docs: https://docs.cloud.google.com/appengine/docs/flexible/reference/app-yaml?tab=python
+
+runtime: python
+env: flex
+
+runtime_config:
+  operating_system: "ubuntu22"
+  runtime_version: "3.11"
+
+entrypoint: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+
+manual_scaling:
+  instances: 1
+
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+liveness_check:
+  path: "/"
+  check_interval_sec: 30
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
+
+readiness_check:
+  path: "/"
+  check_interval_sec: 5
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
+  app_start_timeout_sec: 300
