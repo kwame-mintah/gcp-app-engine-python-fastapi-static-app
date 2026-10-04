@@ -1,7 +1,11 @@
+from pathlib import Path
+
 from fastapi import APIRouter, status
 from fastapi.responses import FileResponse
 
 router = APIRouter(prefix="/demo", tags=["demo"])
+
+STATIC_HTML_DIR = Path(__file__).resolve().parent.parent / "static" / "html"
 
 
 @router.get(
@@ -11,7 +15,7 @@ router = APIRouter(prefix="/demo", tags=["demo"])
     status_code=status.HTTP_200_OK,
 )
 def home() -> FileResponse:
-    return FileResponse("static/html/index.html")
+    return FileResponse(STATIC_HTML_DIR / "index.html")
 
 
 @router.get(
@@ -20,15 +24,25 @@ def home() -> FileResponse:
     summary="Demonstrating returning the about page",
     status_code=status.HTTP_200_OK,
 )
-def about():
-    return FileResponse("static/html/about.html")
+def about() -> FileResponse:
+    return FileResponse(STATIC_HTML_DIR / "about.html")
 
 
 @router.get(
-    path="/contact",
-    operation_id="htmlContact",
-    summary="Demonstrating returning the contact page",
+    path="/docs",
+    operation_id="htmlDocs",
+    summary="Demonstrating returning the docs page",
     status_code=status.HTTP_200_OK,
 )
-def contact():
-    return FileResponse("static/html/contact.html")
+def docs() -> FileResponse:
+    return FileResponse(STATIC_HTML_DIR / "docs.html")
+
+
+@router.get(
+    path="/credits",
+    operation_id="htmlCredits",
+    summary="Demonstrating returning the credits page",
+    status_code=status.HTTP_200_OK,
+)
+def credits() -> FileResponse:
+    return FileResponse(STATIC_HTML_DIR / "credits.html")
