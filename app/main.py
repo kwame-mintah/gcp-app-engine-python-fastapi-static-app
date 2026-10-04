@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import uvicorn
 from fastapi import FastAPI, status
 from fastapi.staticfiles import StaticFiles
@@ -20,7 +22,8 @@ app = FastAPI(
         "url": "https://choosealicense.com/",
     },
 )
-app.mount(path="/static", app=StaticFiles(directory="static"), name="static")
+static_dir = Path(__file__).resolve().parent / "static"
+app.mount(path="/static", app=StaticFiles(directory=static_dir), name="static")
 app.include_router(demo.router)
 app.include_router(versions.router)
 
