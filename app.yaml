@@ -1,0 +1,18 @@
+# App Engine app.yaml reference
+# Docs: https://docs.cloud.google.com/appengine/docs/standard/reference/app-yaml?tab=python#runtime_and_app_elements
+
+runtime: python311
+instance_class: F1
+
+automatic_scaling:
+  min_instances: 0
+  max_instances: 1
+
+entrypoint: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+
+handlers:
+  - url: /static
+    static_dir: app/static
+
+  - url: /.*
+    script: auto
