@@ -1,0 +1,78 @@
+name: '🤐 Build App Engine deployment packages'
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  package:
+    name: 'Package App Engine deployments'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v4
+
+      - name: 'Create deployment directories'
+        run: |
+          set -euo pipefail
+
+          mkdir -p build/flexible
+          mkdir -p build/standard
+
+      - name: 'Package Flexible environment'
+        run: |
+          set -euo pipefail
+
+          rsync -a \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='build/' \
+            --exclude='app.flexible.yaml' \
+            --exclude='app.standard.yaml' \
+            ./ build/flexible/
+
+          cp app.flexible.yaml build/flexible/app.yaml
+
+      - name: 'Package Standard environment'
+        run: |
+          set -euo pipefail
+
+          rsync -a \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='build/' \
+            --exclude='app.flexible.yaml' \
+            --exclude='app.standard.yaml' \
+            ./ build/standard/
+
+          cp app.standard.yaml build/standard/app.yaml
+
+      - name: 'Create ZIP files'
+        run: |
+          set -euo pipefail
+
+          cd build/flexible
+          zip -r ../../app-flexible.zip .
+
+          cd ../standard
+          zip -r ../../app-standard.zip .
+
+          cd ../..
+
+          echo "Deployment packages:"
+          ls -lh app-flexible.zip app-standard.zip
+
+      - name: 'Upload deployment packages'
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'app-engine-deployment-packages'
+          path: |
+            app-flexible.zip
+            app-standard.zip
+          if-no-files-found: error
