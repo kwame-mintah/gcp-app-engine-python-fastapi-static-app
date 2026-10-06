@@ -1,5 +1,5 @@
 # App Engine app.yaml reference
-# Docs: https://docs.cloud.google.com/appengine/docs/standard/reference/app-yaml?tab=python#runtime_and_app_elements
+# Docs: https://docs.cloud.google.com/appengine/docs/standard/reference/app-yaml?tab=python
 
 runtime: python311
 instance_class: F1

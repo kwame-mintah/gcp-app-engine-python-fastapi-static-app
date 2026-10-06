@@ -3,9 +3,13 @@
 ![python](https://img.shields.io/badge/python-3.11.6-informational)
 ![fastapi-0.116.0-informational](https://img.shields.io/badge/fastapi-0.116.0-informational)
 
-This is a FastAPI application, that only serves static files for [Google App Engine Flexible Environment](https://cloud.google.com/appengine),
+This is a FastAPI application, that only serves static files for [Google App Engine Environment(s)](https://cloud.google.com/appengine),
 this is a continuation of my other repositories to deploy simple apps to various cloud providers e.g. [digital ocean](https://github.com/kwame-mintah/digitalocean-static-app),
 [azure](https://github.com/kwame-mintah/python-fastapi-azure-k8s-cluster) etc.
+
+This repository does not deploy any resources, see my terraform project [terraform-gcp-associate-cloud-engineer](https://github.com/kwame-mintah/terraform-gcp-associate-cloud-engineer),
+because [App Engine and Cloud Run](https://docs.cloud.google.com/appengine/migration-center/run/compare-gae-with-run), are
+very similar, new Google Cloud users are recommends to use Cloud Run instead over App Engine.
 
 [![Open in Cloud Shell][shell_img]][shell_link]
 
