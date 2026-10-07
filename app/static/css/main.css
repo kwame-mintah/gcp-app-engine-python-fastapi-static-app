@@ -1,13 +1,13 @@
-/* Website wide stuff start*/
+/* Website wide stuff start */
 
 body {
   background-size: cover;
-  background: #031b4d;
+  background: #f8f9fa;
   font-family: 'VT323', monospace;
   height: 100vh;
   font-size: 22px;
   padding: 0;
-  margin:  0 0 4% 0;;
+  margin: 0 0 4% 0;
 }
 
 /* Website wide stuff end */
@@ -16,7 +16,7 @@ body {
 .header {
   text-align: center;
   font-size: 60px;
-  color: #dddddc;
+  color: #4285F4;
 }
 
 .header p {
@@ -25,35 +25,36 @@ body {
   margin-top: 50px;
 }
 
-/* Page Header End  */
+/* Page Header End */
 
-/* Navbar start  */
+/* Navbar start */
 .navbar {
   overflow: hidden;
-  background-color: #008bcf;
+  background-color: #4285F4;
   text-align: center;
   width: 100%;
+  border-bottom: 5px solid #FBBC05;
 }
 
 .navbar a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #ffffff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
 .navbar a:hover {
-  background-color: #dddddc;
-  color: black;
+  background-color: #EA4335;
+  color: #ffffff;
 }
 
 /* Navbar End */
 
 /* About text start */
 .text {
-  color: white;
+  color: #202124;
   width: 50%;
   margin: 0 auto;
   padding-bottom: 25px;
@@ -64,13 +65,19 @@ body {
 }
 
 .text code {
-  background-color: #eff0f1;
+  background-color: #f1f3f4;
+  color: #202124;
   font-family: 'VT323', monospace;
   font-size: 22px;
+  padding: 2px 5px;
+  border-left: 4px solid #34A853;
 }
 
 .text a {
-  color: wheat;
+  color: #4285F4;
+}
+.text a:hover {
+  color: #EA4335;
 }
 
 .gif {
@@ -82,7 +89,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  outline: 5px double #677b63;
+  outline: 5px double #4285F4;
 }
 
 /* Index container start */
@@ -99,10 +106,10 @@ body {
   width: 70%;
   margin: 0 auto;
   overflow: hidden;
-  background-image: url('/static/images/google_cloud_people.gif');
+  background-image: url('/static/images/clouds_mood_aesthetic.gif');
   background-size: cover;
   display: block;
-  outline: 5px double #677b63;
+  outline: 5px double #EA4335;
 }
 
 .box:before {
@@ -126,16 +133,16 @@ body {
 
 .square-content a {
   text-decoration: none;
-  color: white;
+  color: #ffffff;
   font-size: 70px;
   margin: 0;
 }
 
 .square-content a:hover {
-  color: rgb(255, 255, 255);
+  color: #FBBC05;
 }
 
-/* Index container end  */
+/* Index container end */
 
 /* Footer start */
 .footer {
@@ -144,9 +151,10 @@ body {
   bottom: 0;
   margin-top: 10px;
   width: 100%;
-  background-color: #008bcf;
-  color: white;
+  background-color: #34A853;
+  color: #ffffff;
   text-align: center;
+  border-top: 5px solid #FBBC05;
 }
 
 /* Footer end */
