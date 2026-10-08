@@ -7,6 +7,8 @@ This is a FastAPI application, that only serves static files for [Google App Eng
 this is a continuation of my other repositories to deploy simple apps to various cloud providers e.g. [digital ocean](https://github.com/kwame-mintah/digitalocean-static-app),
 [azure](https://github.com/kwame-mintah/python-fastapi-azure-k8s-cluster) etc.
 
+![](./docs/app_engine_static_site_deployed.gif)
+
 This repository does not deploy any resources, see my terraform project [terraform-gcp-associate-cloud-engineer](https://github.com/kwame-mintah/terraform-gcp-associate-cloud-engineer),
 because [App Engine and Cloud Run](https://docs.cloud.google.com/appengine/migration-center/run/compare-gae-with-run), are
 very similar, new Google Cloud users are recommends to use Cloud Run instead over App Engine.
